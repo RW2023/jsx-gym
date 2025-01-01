@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import LibraryList from '../Data/LibraryList';
+import LibraryList from './LibraryList';
 
 const Mid: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
