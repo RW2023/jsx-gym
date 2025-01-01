@@ -24,23 +24,36 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl">
                 {[
                     {
-                        title: 'Learn with Examples',
-                        subtitle: 'Explore React libraries',
-                        buttonText: 'Start Now',
+                        title: 'Libraries Explored',
+                        subtitle: 'Explore Installed  libraries',
+                        buttonText: 'View Libraries',
                         buttonUrl: '/Mid',
                     },
                     {
-                        title: 'Check Eligibility',
-                        subtitle: 'Try our Eligibility Checker',
-                        buttonText: 'Try It',
-                        buttonUrl: '/EligibilityChecker',
+                        title: 'Typography',
+                        subtitle: 'installed Fonts',
+                        buttonText: 'View Fonts',
+                        buttonUrl: '/font',
                     },
                     {
-                        title: 'State Management Demo',
-                        subtitle: 'Understand React State',
-                        buttonText: 'View Demo',
+                        title: 'State Management ',
+                        subtitle: 'Mini State Projects',
+                        buttonText: 'View Demos',
                         buttonUrl: '/StateDemo',
                     },
+                    {
+                        title: 'Balance Your Chakras',
+                        subtitle: 'Discover the 7 chakras',
+                        buttonText: 'Explore Chakras',
+                        buttonUrl: '/ChakraExplorer',
+                    },
+                    {
+                        title: 'Generations',
+                        subtitle: 'Reference guide for generations',
+                        buttonText: 'View Guide',
+                        buttonUrl: '/GenerationSelector',
+
+                    }
                 ].map((card, index) => (
                     <motion.div
                         key={index}
