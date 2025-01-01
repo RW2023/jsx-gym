@@ -1,0 +1,226 @@
+export type ChakraDetails = {
+    name: string;
+    location: string;
+    purpose: string;
+    description: string;
+    image: string;
+    physicalLocation: string;
+    physicalSystems: string;
+    nervePlexus: string;
+    gland: string;
+    psychologicalAspect: string;
+    spiritualFunction: string;
+    traditionalSymbol: string;
+    element: string;
+    color: string;
+    sense: string;
+    energyBody: string;
+    seedMantra: string;
+    relatedDay: string;
+    psychologicalDevelopment: string;
+    quest: string;
+    qualities: string;
+    blockingFears: string;
+    catharsis: string;
+    stone: string;
+    foods: string;
+};
+
+export const chakras: ChakraDetails[] = [
+    {
+        name: "Root Chakra",
+        location: "Base of the spine",
+        purpose: "Grounding, stability, and survival.",
+        description:
+            "The Root Chakra represents our foundation. It is located at the base of the spine and gives us the feeling of being grounded and stable.",
+        image: "/chakras/root.png",
+        physicalLocation: "Base of the spine.",
+        physicalSystems: "Spine, legs, and feet.",
+        nervePlexus: "Coccygeal plexus.",
+        gland: "Adrenal glands.",
+        psychologicalAspect: "Survival instincts.",
+        spiritualFunction: "Grounding to Earth and stability.",
+        traditionalSymbol: "Four-petaled lotus.",
+        element: "Earth.",
+        color: "Red.",
+        sense: "Smell.",
+        energyBody: "Annamaya Kosha (the physical body).",
+        seedMantra: "Lam.",
+        relatedDay: "Saturday.",
+        psychologicalDevelopment: "From birth to age 7.",
+        quest: "To feel safe, secure, and grounded.",
+        qualities: "Stability, grounding, survival.",
+        blockingFears: "Fear of abandonment and instability.",
+        catharsis: "Reconnecting with nature.",
+        stone: "Hematite, Red Jasper.",
+        foods: "Root vegetables, red foods, proteins.",
+    },
+    {
+        name: "Sacral Chakra",
+        location: "Below the navel",
+        purpose: "Creativity, pleasure, and relationships.",
+        description:
+            "The Sacral Chakra governs our emotions, creativity, and relationships. It is associated with the water element and fluidity.",
+        image: "/chakras/sacral.png",
+        physicalLocation: "Below the navel.",
+        physicalSystems: "Reproductive organs, kidneys, bladder.",
+        nervePlexus: "Hypogastric plexus.",
+        gland: "Ovaries/Testes.",
+        psychologicalAspect: "Emotions, sexuality, creativity.",
+        spiritualFunction: "Fluidity, connection, and flow.",
+        traditionalSymbol: "Six-petaled lotus.",
+        element: "Water.",
+        color: "Orange.",
+        sense: "Taste.",
+        energyBody: "Pranamaya Kosha (the vital energy body).",
+        seedMantra: "Vam.",
+        relatedDay: "Friday.",
+        psychologicalDevelopment: "From ages 8 to 14.",
+        quest: "To connect emotionally and creatively with others.",
+        qualities: "Fluidity, connection, and creativity.",
+        blockingFears: "Fear of emotional and sexual repression.",
+        catharsis: "Emotional release.",
+        stone: "Carnelian, Moonstone.",
+        foods: "Orange-colored foods, fluids.",
+    },
+    {
+        name: "Solar Plexus Chakra",
+        location: "Upper abdomen",
+        purpose: "Self-esteem, willpower, and personal identity.",
+        description:
+            "The Solar Plexus Chakra influences our confidence, personal power, and ability to take control of our lives.",
+        image: "/chakras/solar.png",
+        physicalLocation: "Above the navel in the upper abdomen.",
+        physicalSystems: "Digestive system, pancreas, liver.",
+        nervePlexus: "Solar plexus.",
+        gland: "Pancreas.",
+        psychologicalAspect: "Confidence, personal identity.",
+        spiritualFunction: "Empowerment and self-mastery.",
+        traditionalSymbol: "Ten-petaled lotus.",
+        element: "Fire.",
+        color: "Yellow.",
+        sense: "Sight.",
+        energyBody: "Manomaya Kosha (the mental body).",
+        seedMantra: "Ram.",
+        relatedDay: "Tuesday.",
+        psychologicalDevelopment: "From ages 15 to 21.",
+        quest: "To find and assert your personal power.",
+        qualities: "Confidence, empowerment, vitality.",
+        blockingFears: "Fear of rejection or failure.",
+        catharsis: "Confronting insecurities.",
+        stone: "Citrine, Yellow Jasper.",
+        foods: "Yellow foods, grains, and spices.",
+    },
+    {
+        name: "Heart Chakra",
+        location: "Center of the chest",
+        purpose: "Love, compassion, and emotional balance.",
+        description:
+            "The Heart Chakra connects the lower and upper chakras. It represents love, compassion, and emotional healing.",
+        image: "/chakras/heart.png",
+        physicalLocation: "Center of the chest.",
+        physicalSystems: "Heart, lungs, arms, and hands.",
+        nervePlexus: "Cardiac plexus.",
+        gland: "Thymus gland.",
+        psychologicalAspect: "Emotional balance and compassion.",
+        spiritualFunction: "Unconditional love and connection.",
+        traditionalSymbol: "Twelve-petaled lotus.",
+        element: "Air.",
+        color: "Green.",
+        sense: "Touch.",
+        energyBody: "Vijnanamaya Kosha (the intuitive body).",
+        seedMantra: "Yam.",
+        relatedDay: "Wednesday.",
+        psychologicalDevelopment: "From ages 22 to 28.",
+        quest: "To cultivate love, balance, and connection.",
+        qualities: "Compassion, empathy, love.",
+        blockingFears: "Fear of rejection and heartbreak.",
+        catharsis: "Healing emotional wounds.",
+        stone: "Rose Quartz, Green Aventurine.",
+        foods: "Green leafy vegetables, air-infused foods.",
+    },
+    {
+        name: "Throat Chakra",
+        location: "Throat area",
+        purpose: "Communication, self-expression, and truth.",
+        description:
+            "The Throat Chakra governs our ability to communicate clearly and express our truth authentically.",
+        image: "/chakras/throat.png",
+        physicalLocation: "Throat area.",
+        physicalSystems: "Throat, mouth, teeth, thyroid.",
+        nervePlexus: "Cervical plexus.",
+        gland: "Thyroid gland.",
+        psychologicalAspect: "Communication and authenticity.",
+        spiritualFunction: "Truth and creative expression.",
+        traditionalSymbol: "Sixteen-petaled lotus.",
+        element: "Sound/Ether.",
+        color: "Blue.",
+        sense: "Hearing.",
+        energyBody: "Vishuddha Kosha (the etheric body).",
+        seedMantra: "Ham.",
+        relatedDay: "Thursday.",
+        psychologicalDevelopment: "From ages 29 to 35.",
+        quest: "To express truth and creativity.",
+        qualities: "Authenticity, clarity, communication.",
+        blockingFears: "Fear of being misunderstood.",
+        catharsis: "Speaking one's truth.",
+        stone: "Blue Lace Agate, Aquamarine.",
+        foods: "Blue foods, teas, soups.",
+    },
+    {
+        name: "Third Eye Chakra",
+        location: "Forehead between the eyes",
+        purpose: "Intuition, perception, and insight.",
+        description:
+            "The Third Eye Chakra is associated with intuition, clarity, and seeing beyond the physical world.",
+        image: "/chakras/third-eye.png",
+        physicalLocation: "Forehead between the eyes.",
+        physicalSystems: "Eyes, pituitary gland, nervous system.",
+        nervePlexus: "Cavernous plexus.",
+        gland: "Pituitary gland.",
+        psychologicalAspect: "Intuition, insight, clarity.",
+        spiritualFunction: "Awareness and expanded perception.",
+        traditionalSymbol: "Two-petaled lotus.",
+        element: "Light.",
+        color: "Indigo.",
+        sense: "Sixth sense.",
+        energyBody: "Ajna Kosha (the higher mind body).",
+        seedMantra: "Om.",
+        relatedDay: "Monday.",
+        psychologicalDevelopment: "From ages 36 to 42.",
+        quest: "To achieve inner clarity and insight.",
+        qualities: "Wisdom, intuition, clarity.",
+        blockingFears: "Fear of the unknown.",
+        catharsis: "Meditation and visualization.",
+        stone: "Amethyst, Lapis Lazuli.",
+        foods: "Indigo foods, berries, cacao.",
+    },
+    {
+        name: "Crown Chakra",
+        location: "Top of the head",
+        purpose: "Spiritual connection and enlightenment.",
+        description:
+            "The Crown Chakra represents our connection to the universe and higher consciousness.",
+        image: "/chakras/crown.png",
+        physicalLocation: "Top of the head.",
+        physicalSystems: "Pineal gland, skull, brain.",
+        nervePlexus: "None.",
+        gland: "Pineal gland.",
+        psychologicalAspect: "None, as it is beyond the psyche.",
+        spiritualFunction: "Unity and spiritual enlightenment.",
+        traditionalSymbol: "One-thousand-petaled lotus.",
+        element: "Cosmic energy.",
+        color: "Violet/White.",
+        sense: "None.",
+        energyBody: "Anandamaya Kosha (the bliss body).",
+        seedMantra: "Ah.",
+        relatedDay: "Sunday.",
+        psychologicalDevelopment: "From age 42 onwards.",
+        quest: "To transcend earthly attachments.",
+        qualities: "Unity, bliss, transcendence.",
+        blockingFears: "Fear of ego death.",
+        catharsis: "Kundalini awakening.",
+        stone: "Clear Quartz, Celestite.",
+        foods: "Light raw foods, fasting.",
+    },
+];

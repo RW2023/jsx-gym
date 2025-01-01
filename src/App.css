@@ -1,0 +1,13 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: var(--tw-bg-opacity) #1E293B; /* Matches the dark theme background */
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--tw-bg-opacity) #1E293B; /* Ensure the root matches the dark background */
+}
