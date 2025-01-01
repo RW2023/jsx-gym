@@ -25,10 +25,10 @@ const Mid: React.FC = () => {
             {/* Title */}
             <div className="text-center mb-8">
                 <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
-                    Explore Frontend Libraries
+                     Frontend Libraries Used
                 </h1>
                 <p className="text-lg text-gray-600 dark:text-gray-300">
-                    Search and filter libraries to find the best fit for your projects.
+                    Search and filter libraries .
                 </p>
             </div>
 
