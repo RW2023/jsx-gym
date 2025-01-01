@@ -13,22 +13,19 @@ const Font: React.FC = () => {
             {/* Page Title */}
             <div className="text-center mb-12">
                 <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4 font-orbitron">
-                    Explore Fonts
+                    Fonts
                 </h1>
                 <p className="text-lg text-gray-600 dark:text-gray-300 font-roboto">
-                    Learn how to install and configure fonts for your project.
+                    Fonts are installed to improve performance and enhance privacy.
                 </p>
             </div>
 
             {/* Card */}
             <Card
-                title="Fonts"
-                subtitle="Installing and Configuring Fonts"
+                title="Installed Fonts"
+                subtitle="Explore the installed fonts in this project."
                 body={
                     <div className="mt-4">
-                        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 font-orbitron">
-                            Explore the Styles Below:
-                        </h2>
                         <ul className="list-disc list-inside text-lg text-gray-800 dark:text-gray-300 space-y-4">
                             <motion.li
                                 className="font-orbitron"
@@ -37,7 +34,7 @@ const Font: React.FC = () => {
                                 transition={{ duration: 0.5, delay: 0.2 }}
                                 whileHover={{ scale: 1.05 }}
                             >
-                                <span className="font-bold">Lora (Headlines):</span> Sample text in Lora font.
+                                <span className="font-bold">Orbitron (Headlines):</span> <span>Sample text in Orbitron font.</span>
                             </motion.li>
                             <motion.li
                                 className="font-roboto"
@@ -46,13 +43,13 @@ const Font: React.FC = () => {
                                 transition={{ duration: 0.5, delay: 0.4 }}
                                 whileHover={{ scale: 1.05 }}
                             >
-                                <span className="font-bold">Inter (Body Text):</span> Sample text in Inter font.
+                                <span className="font-bold">Roboto (Body Text):</span> <span>Sample text in Roboto font.</span>
                             </motion.li>
                         </ul>
                     </div>
                 }
-                buttonText="Explore States"
-                buttonUrl="/StateDemo"
+                buttonText="Home"
+                buttonUrl="/"
             />
         </motion.div>
     );
