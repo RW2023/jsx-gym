@@ -1,14 +1,43 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import LibraryList from '../Data/LibraryList';
 
 const Mid: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const libraries = [
-        { name: 'Daisy UI', easeOfUse: 4.5, added: '2024-12-30' },
-        { name: 'Tailwind CSS', easeOfUse: 5, added: '2024-12-30' },
-        { name: 'Framer Motion', easeOfUse: 4, added: '2024-12-30' },
-        { name: 'React Router', easeOfUse: 4.2, added: '2024-12-30' },
+        {
+            name: 'Daisy UI',
+            easeOfUse: 4.5,
+            added: '2024-12-30',
+            description: 'A lightweight UI component library built on TailwindCSS.',
+            logo: '/images/daisyui-logo.png',
+            link: 'https://daisyui.com',
+        },
+        {
+            name: 'Tailwind CSS',
+            easeOfUse: 5,
+            added: '2024-12-30',
+            description: 'A utility-first CSS framework for rapid UI development.',
+            logo: '/images/tailwindcss-logo.png',
+            link: 'https://tailwindcss.com',
+        },
+        {
+            name: 'Framer Motion',
+            easeOfUse: 4,
+            added: '2024-12-30',
+            description: 'A powerful motion library for animations in React.',
+            logo: '/images/framer-motion.jpeg',
+            link: 'https://www.framer.com/motion/',
+        },
+        {
+            name: 'React Router',
+            easeOfUse: 4.2,
+            added: '2024-12-30',
+            description: 'A declarative routing library for React applications.',
+            logo: '/images/react-router.png',
+            link: 'https://reactrouter.com',
+        },
     ];
 
     const filteredLibraries = libraries.filter((library) =>
@@ -25,10 +54,10 @@ const Mid: React.FC = () => {
             {/* Title */}
             <div className="text-center mb-8">
                 <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
-                     Frontend Libraries Used
+                    Frontend Libraries Used
                 </h1>
                 <p className="text-lg text-gray-600 dark:text-gray-300">
-                    Search and filter libraries .
+                    Search and filter libraries.
                 </p>
             </div>
 
@@ -46,19 +75,7 @@ const Mid: React.FC = () => {
             {/* List */}
             <div className="w-full max-w-3xl">
                 {filteredLibraries.length > 0 ? (
-                    <ul className="list-disc list-inside space-y-4">
-                        {filteredLibraries.map((library, index) => (
-                            <motion.li
-                                key={index}
-                                className="text-lg text-gray-800 dark:text-gray-300"
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: index * 0.1 }}
-                            >
-                                {library.name} - Ease of Use: {library.easeOfUse}/5
-                            </motion.li>
-                        ))}
-                    </ul>
+                    <LibraryList libraries={filteredLibraries} />
                 ) : (
                     <p className="text-gray-600 dark:text-gray-400 text-center">
                         No libraries found.
