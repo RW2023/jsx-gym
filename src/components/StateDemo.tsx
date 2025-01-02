@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faMinus, faRedo, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const StateDemo: React.FC = () => {
     const useCounter = (initialValue = 0) => {
@@ -32,7 +34,7 @@ const StateDemo: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
         >
-            <h1 className="text-2xl font-bold mb-6  dark:text-white text-center sm:text-3xl">
+            <h1 className="text-2xl font-bold mb-6 dark:text-white text-center sm:text-3xl">
                 React State Demo
             </h1>
 
@@ -54,29 +56,32 @@ const StateDemo: React.FC = () => {
                 <div className="flex flex-wrap gap-4 justify-center">
                     <motion.button
                         onClick={increment}
-                        className="btn bg-green-500 text-white hover:bg-green-600 dark:hover:bg-green-400 w-full sm:w-auto"
+                        className="btn bg-green-500 text-white hover:bg-green-600 dark:hover:bg-green-400 w-full sm:w-auto flex items-center justify-center gap-2"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         aria-label="Increment count"
                     >
+                        <FontAwesomeIcon icon={faPlus} />
                         Increment
                     </motion.button>
                     <motion.button
                         onClick={decrement}
-                        className="btn bg-red-500 text-white hover:bg-red-600 dark:hover:bg-red-400 w-full sm:w-auto"
+                        className="btn bg-red-500 text-white hover:bg-red-600 dark:hover:bg-red-400 w-full sm:w-auto flex items-center justify-center gap-2"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         aria-label="Decrement count"
                     >
+                        <FontAwesomeIcon icon={faMinus} />
                         Decrement
                     </motion.button>
                     <motion.button
                         onClick={reset}
-                        className="btn bg-gray-500 text-white hover:bg-gray-600 dark:hover:bg-gray-400 w-full sm:w-auto"
+                        className="btn bg-gray-500 text-white hover:bg-gray-600 dark:hover:bg-gray-400 w-full sm:w-auto flex items-center justify-center gap-2"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         aria-label="Reset count"
                     >
+                        <FontAwesomeIcon icon={faRedo} />
                         Reset
                     </motion.button>
                 </div>
@@ -113,10 +118,11 @@ const StateDemo: React.FC = () => {
                 </motion.p>
                 <motion.button
                     type="button"
-                    className="btn bg-black text-white hover:text-black hover:bg-white dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white w-full sm:w-auto mx-auto block"
+                    className="btn bg-black text-white hover:text-black hover:bg-white dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white w-full sm:w-auto mx-auto block flex items-center gap-2"
                     whileHover={{ scale: 1.1 }}
                     onClick={() => navigate("/EligibilityChecker")}
                 >
+                    <FontAwesomeIcon icon={faArrowRight} />
                     Check Eligibility Demo
                 </motion.button>
             </section>

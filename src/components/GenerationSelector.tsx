@@ -1,67 +1,63 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRedo, faChevronDown, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 
 // Types
 type GenerationDetails = {
     years: string;
     description: string;
     detailedDescription: string;
-    image: string; // Added for image paths
+    image: string;
 };
 
 type Generations = {
     [key: string]: GenerationDetails;
 };
 
-// Generations data with image placeholders
+// Generations data
 const generations: Generations = {
     silent: {
         years: "1928-1945",
-        description:
-            "The Silent Generation grew up during the Great Depression and World War II.",
+        description: "The Silent Generation grew up during the Great Depression and World War II.",
         detailedDescription:
             "This generation is known for their strong work ethic, discipline, and traditional values. They witnessed major world events like the Great Depression and WWII, which deeply influenced their outlook on life. Many became leaders in business and government in the latter half of the 20th century.",
-        image: "/generations/silent.jpg", // Placeholder for Silent Generation image
+        image: "/generations/silent.jpg",
     },
     babyBoomers: {
         years: "1946-1964",
-        description:
-            "Baby Boomers were born post-World War II during a time of economic prosperity.",
+        description: "Baby Boomers were born post-World War II during a time of economic prosperity.",
         detailedDescription:
             "Baby Boomers played a key role in shaping modern culture. They experienced the civil rights movement, the Vietnam War protests, and the rise of rock 'n' roll. As a generation, they value personal growth and were pioneers of social change.",
-        image: "/generations/babyBoomers.jpg", // Placeholder for Baby Boomers image
+        image: "/generations/babyBoomers.jpg",
     },
     generationX: {
         years: "1965-1980",
-        description:
-            "Generation X grew up during the rise of personal computers.",
+        description: "Generation X grew up during the rise of personal computers.",
         detailedDescription:
             "Often referred to as the 'Latchkey Generation,' Generation X is known for their independence and entrepreneurial spirit. They were the first generation to grow up with video games, cable TV, and personal computers, marking the beginning of the digital age.",
-        image: "/generations/generationX.webp", // Placeholder for Generation X image
+        image: "/generations/generationX.webp",
     },
     millennials: {
         years: "1981-1996",
-        description:
-            "Millennials came of age during the internet boom and the rise of social media.",
+        description: "Millennials came of age during the internet boom and the rise of social media.",
         detailedDescription:
             "Millennials are highly tech-savvy and value experiences over material possessions. They came of age during the dot-com boom, 9/11, and the 2008 financial crisis, shaping their adaptability and focus on work-life balance. They are also known for their environmental and social awareness.",
-        image: "/generations/millennials.webp", // Placeholder for Millennials image
+        image: "/generations/millennials.webp",
     },
     generationZ: {
         years: "1997-2012",
-        description:
-            "Generation Z is the first generation to grow up with smartphones.",
+        description: "Generation Z is the first generation to grow up with smartphones.",
         detailedDescription:
             "This generation is marked by their digital-native status. They value diversity and inclusivity, and they are highly vocal about social and political issues. Their strong connection to technology influences their communication and work preferences.",
-        image: "/generations/generationZ.webp", // Placeholder for Generation Z image
+        image: "/generations/generationZ.webp",
     },
     generationAlpha: {
         years: "2013-Present",
-        description:
-            "Generation Alpha is growing up in a world dominated by digital technologies.",
+        description: "Generation Alpha is growing up in a world dominated by digital technologies.",
         detailedDescription:
             "Generation Alpha is still in its formative years, but they are already showing a deep connection to AI, automation, and cutting-edge technology. They are expected to be the most educated generation, with a strong focus on creativity and innovation.",
-        image: "/generations/generationAlpha.jpg", // Placeholder for Generation Alpha image
+        image: "/generations/generationAlpha.jpg",
     },
 };
 
@@ -83,13 +79,6 @@ const GenerationSelector: React.FC = () => {
         setSelectedGeneration("");
     };
 
-    // Framer Motion variants for animations
-    const fadeVariant = {
-        hidden: { opacity: 0, y: -10 },
-        visible: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: 10 },
-    };
-
     return (
         <motion.div
             className="bg-gray-100 dark:bg-gray-900 w-full flex flex-col items-center justify-center min-h-screen p-6"
@@ -105,7 +94,11 @@ const GenerationSelector: React.FC = () => {
                 <form>
                     {/* Dropdown */}
                     <div className="form-control mb-4">
-                        <label className="label">
+                        <label className="label flex items-center">
+                            <FontAwesomeIcon
+                                icon={faChevronDown}
+                                className="text-gray-700 dark:text-gray-300 mr-2"
+                            />
                             <span className="label-text text-gray-800 dark:text-gray-300">
                                 Select a Generation:
                             </span>
@@ -128,26 +121,30 @@ const GenerationSelector: React.FC = () => {
                     </div>
 
                     {/* Reset Button */}
-                    <button
+                    <motion.button
                         type="button"
-                        className="btn btn-outline w-full mt-2 text-gray-800 dark:text-gray-300 dark:border-gray-500 hover:bg-gray-200 dark:hover:bg-gray-700"
+                        className="btn btn-outline w-full mt-2 text-gray-800 dark:text-gray-300 dark:border-gray-500 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center gap-2"
                         onClick={handleReset}
+                        whileHover={{ scale: 1.05 }}
                     >
+                        <FontAwesomeIcon icon={faRedo} />
                         Reset
-                    </button>
+                    </motion.button>
                 </form>
 
                 {/* Dynamic Explainer */}
                 {selectedGeneration && (
                     <motion.div
                         className="p-4 mt-4 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-lg"
-                        variants={fadeVariant}
-                        initial="hidden"
-                        animate="visible"
-                        exit="exit"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h2 className="text-lg font-bold font-roboto">
+                        <h2 className="text-lg font-bold font-roboto flex items-center">
+                            <FontAwesomeIcon
+                                icon={faCalendarAlt}
+                                className="text-gray-800 dark:text-white mr-2"
+                            />
                             {toTitleCase(selectedGeneration)}
                         </h2>
                         <p className="text-sm italic font-roboto">
@@ -159,8 +156,6 @@ const GenerationSelector: React.FC = () => {
                         <p className="mt-4 font-roboto text-gray-600 dark:text-gray-300">
                             {generations[selectedGeneration].detailedDescription}
                         </p>
-
-                        {/* Image */}
                         <img
                             src={generations[selectedGeneration].image}
                             alt={`${toTitleCase(selectedGeneration)} image`}

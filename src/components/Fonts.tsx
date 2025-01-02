@@ -1,6 +1,8 @@
 import React from "react";
 import Card from "./Card";
 import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFont, faTextHeight } from "@fortawesome/free-solid-svg-icons";
 
 const Font: React.FC = () => {
     return (
@@ -28,22 +30,32 @@ const Font: React.FC = () => {
                     <div className="mt-4">
                         <ul className="list-disc list-inside text-lg text-gray-800 dark:text-gray-300 space-y-4">
                             <motion.li
-                                className="font-orbitron"
+                                className="flex items-center space-x-4 font-orbitron"
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.5, delay: 0.2 }}
                                 whileHover={{ scale: 1.05 }}
                             >
-                                <span className="font-bold">Orbitron (Headlines):</span> <span>Sample text in Orbitron font.</span>
+                                <FontAwesomeIcon
+                                    icon={faFont}
+                                    className="text-gray-800 dark:text-gray-300"
+                                />
+                                <span className="font-bold">Orbitron (Headlines):</span>
+                                <span>Sample text in Orbitron font.</span>
                             </motion.li>
                             <motion.li
-                                className="font-roboto"
+                                className="flex items-center space-x-4 font-roboto"
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.5, delay: 0.4 }}
                                 whileHover={{ scale: 1.05 }}
                             >
-                                <span className="font-bold">Roboto (Body Text):</span> <span>Sample text in Roboto font.</span>
+                                <FontAwesomeIcon
+                                    icon={faTextHeight}
+                                    className="text-gray-800 dark:text-gray-300"
+                                />
+                                <span className="font-bold">Roboto (Body Text):</span>
+                                <span>Sample text in Roboto font.</span>
                             </motion.li>
                         </ul>
                     </div>
