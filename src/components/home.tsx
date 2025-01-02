@@ -1,6 +1,8 @@
 import React from 'react';
 import Card from './Card';
 import { motion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBook, faFont, faAdjust, faYinYang, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 const Home: React.FC = () => {
     return (
@@ -25,35 +27,39 @@ const Home: React.FC = () => {
                 {[
                     {
                         title: 'Libraries Explored',
-                        subtitle: 'Explore Installed  libraries',
+                        subtitle: 'Explore Installed libraries',
                         buttonText: 'View Libraries',
                         buttonUrl: '/Mid',
+                        icon: faBook,
                     },
                     {
                         title: 'Typography',
-                        subtitle: 'installed Fonts',
+                        subtitle: 'Installed Fonts',
                         buttonText: 'View Fonts',
                         buttonUrl: '/font',
+                        icon: faFont,
                     },
                     {
                         title: 'State Management ',
                         subtitle: 'Mini State Projects',
                         buttonText: 'View Demos',
                         buttonUrl: '/StateDemo',
+                        icon: faAdjust,
                     },
                     {
                         title: 'Balance Your Chakras',
                         subtitle: 'Discover the 7 chakras',
                         buttonText: 'Explore Chakras',
                         buttonUrl: '/ChakraExplorer',
+                        icon: faYinYang,
                     },
                     {
                         title: 'Generations',
                         subtitle: 'Reference guide for generations',
                         buttonText: 'View Guide',
                         buttonUrl: '/GenerationSelector',
-
-                    }
+                        icon: faUsers,
+                    },
                 ].map((card, index) => (
                     <motion.div
                         key={index}
@@ -62,6 +68,20 @@ const Home: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.2 }}
                     >
+                        <div className="flex items-center mb-4">
+                            <FontAwesomeIcon
+                                icon={card.icon}
+                                className="text-3xl text-gray-800 dark:text-white mr-4"
+                            />
+                            <div>
+                                <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                                    {card.title}
+                                </h3>
+                                <p className="text-sm text-gray-600 dark:text-gray-300">
+                                    {card.subtitle}
+                                </p>
+                            </div>
+                        </div>
                         <Card
                             title={card.title}
                             subtitle={card.subtitle}
