@@ -27,22 +27,22 @@ const StateDemo: React.FC = () => {
 
     return (
         <motion.div
-            className="bg-base-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md mx-auto m-3"
+            className="bg-base-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-4xl mx-auto my-6 sm:p-8 lg:p-12"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
         >
-            <h1 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
+            <h1 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white text-center sm:text-3xl">
                 React State Demo
             </h1>
 
             {/* Counter Example */}
-            <section className="mb-6" id="state-demo">
-                <h2 className="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-200">
+            <section className="mb-12" id="state-demo">
+                <h2 className="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-200 sm:text-2xl">
                     Counter Example
                 </h2>
                 <motion.p
-                    className="mb-4 text-lg text-gray-600 dark:text-gray-300"
+                    className="mb-6 text-lg text-gray-600 dark:text-gray-300 text-center"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     whileHover="updated"
@@ -51,10 +51,10 @@ const StateDemo: React.FC = () => {
                 >
                     Current Count: <span className="font-bold">{count}</span>
                 </motion.p>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-4 justify-center">
                     <motion.button
                         onClick={increment}
-                        className="btn bg-green-500 text-white hover:bg-green-600 dark:hover:bg-green-400"
+                        className="btn bg-green-500 text-white hover:bg-green-600 dark:hover:bg-green-400 w-full sm:w-auto"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         aria-label="Increment count"
@@ -63,7 +63,7 @@ const StateDemo: React.FC = () => {
                     </motion.button>
                     <motion.button
                         onClick={decrement}
-                        className="btn bg-red-500 text-white hover:bg-red-600 dark:hover:bg-red-400"
+                        className="btn bg-red-500 text-white hover:bg-red-600 dark:hover:bg-red-400 w-full sm:w-auto"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         aria-label="Decrement count"
@@ -72,7 +72,7 @@ const StateDemo: React.FC = () => {
                     </motion.button>
                     <motion.button
                         onClick={reset}
-                        className="btn bg-gray-500 text-white hover:bg-gray-600 dark:hover:bg-gray-400"
+                        className="btn bg-gray-500 text-white hover:bg-gray-600 dark:hover:bg-gray-400 w-full sm:w-auto"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         aria-label="Reset count"
@@ -84,17 +84,17 @@ const StateDemo: React.FC = () => {
 
             {/* Text Input Example */}
             <section>
-                <h2 className="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-200">
+                <h2 className="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-200 sm:text-2xl">
                     Text Input Example
                 </h2>
-                <p className="mb-4 text-gray-600 dark:text-gray-300">
+                <p className="mb-6 text-gray-600 dark:text-gray-300 text-center sm:text-lg">
                     Type something below to see how state updates in real-time:
                 </p>
                 <motion.input
                     type="text"
                     value={text}
                     onChange={handleTextChange}
-                    className="input input-bordered w-full mb-4 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                    className="input input-bordered w-full mb-6 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                     placeholder="Type here..."
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -103,7 +103,7 @@ const StateDemo: React.FC = () => {
                     aria-label="Enter text"
                 />
                 <motion.p
-                    className="text-lg text-gray-600 dark:text-gray-300"
+                    className="text-lg text-gray-600 dark:text-gray-300 mb-6 text-center"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
@@ -113,7 +113,7 @@ const StateDemo: React.FC = () => {
                 </motion.p>
                 <motion.button
                     type="button"
-                    className="btn bg-black text-white hover:text-black hover:bg-white dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white"
+                    className="btn bg-black text-white hover:text-black hover:bg-white dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white w-full sm:w-auto mx-auto block"
                     whileHover={{ scale: 1.1 }}
                     onClick={() => navigate("/EligibilityChecker")}
                 >
