@@ -32,7 +32,7 @@ const StateDemo: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
         >
-            <h1 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white text-center sm:text-3xl">
+            <h1 className="text-2xl font-bold mb-6  dark:text-white text-center sm:text-3xl">
                 React State Demo
             </h1>
 
