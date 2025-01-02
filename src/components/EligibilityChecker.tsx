@@ -1,4 +1,12 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faUser,
+    faCalendarAlt,
+    faExclamationCircle,
+    faCheckCircle,
+    faRedo,
+} from "@fortawesome/free-solid-svg-icons";
 
 const EligibilityChecker: React.FC = () => {
     const [firstName, setFirstName] = useState("");
@@ -53,15 +61,17 @@ const EligibilityChecker: React.FC = () => {
     return (
         <div className="bg-base-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md mx-auto m-3">
             <h1 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
+                <FontAwesomeIcon icon={faCheckCircle} className="mr-2 text-blue-500" />
                 Eligibility Checker
             </h1>
 
             <form onSubmit={checkEligibility} className="mb-6">
                 <div className="mb-4">
                     <label
-                        className="block font-bold mb-2 text-gray-700 dark:text-gray-200"
+                        className="block font-bold mb-2 text-gray-700 dark:text-gray-200 flex items-center"
                         htmlFor="firstName"
                     >
+                        <FontAwesomeIcon icon={faUser} className="mr-2" />
                         First Name:
                     </label>
                     <input
@@ -77,9 +87,10 @@ const EligibilityChecker: React.FC = () => {
                 </div>
                 <div className="mb-4">
                     <label
-                        className="block font-bold mb-2 text-gray-700 dark:text-gray-200"
+                        className="block font-bold mb-2 text-gray-700 dark:text-gray-200 flex items-center"
                         htmlFor="lastName"
                     >
+                        <FontAwesomeIcon icon={faUser} className="mr-2" />
                         Last Name:
                     </label>
                     <input
@@ -95,9 +106,10 @@ const EligibilityChecker: React.FC = () => {
                 </div>
                 <div className="mb-4">
                     <label
-                        className="block font-bold mb-2 text-gray-700 dark:text-gray-200"
+                        className="block font-bold mb-2 text-gray-700 dark:text-gray-200 flex items-center"
                         htmlFor="birthYear"
                     >
+                        <FontAwesomeIcon icon={faCalendarAlt} className="mr-2" />
                         Birth Year:
                     </label>
                     <input
@@ -106,29 +118,36 @@ const EligibilityChecker: React.FC = () => {
                         value={birthYear}
                         onChange={(e) => setBirthYear(Number(e.target.value))}
                         className={`input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white ${error &&
-                                (!birthYear ||
-                                    birthYear < 1900 ||
-                                    birthYear > new Date().getFullYear())
-                                ? "border-red-500"
-                                : ""
+                            (!birthYear ||
+                                birthYear < 1900 ||
+                                birthYear > new Date().getFullYear())
+                            ? "border-red-500"
+                            : ""
                             }`}
                         placeholder="Enter birth year"
                         aria-required="true"
                     />
                 </div>
-                {error && <p className="text-red-500 dark:text-red-400 mb-4">{error}</p>}
+                {error && (
+                    <p className="text-red-500 dark:text-red-400 mb-4 flex items-center">
+                        <FontAwesomeIcon icon={faExclamationCircle} className="mr-2" />
+                        {error}
+                    </p>
+                )}
                 <div className="flex gap-4">
                     <button
                         type="submit"
-                        className="btn bg-blue-500 text-white hover:bg-blue-600 dark:hover:bg-blue-400 flex-1"
+                        className="btn bg-blue-500 text-white hover:bg-blue-600 dark:hover:bg-blue-400 flex-1 flex items-center justify-center gap-2"
                     >
+                        <FontAwesomeIcon icon={faCheckCircle} />
                         Check Eligibility
                     </button>
                     <button
                         type="button"
                         onClick={resetForm}
-                        className="btn bg-gray-500 text-white hover:bg-gray-600 dark:hover:bg-gray-400 flex-1"
+                        className="btn bg-gray-500 text-white hover:bg-gray-600 dark:hover:bg-gray-400 flex-1 flex items-center justify-center gap-2"
                     >
+                        <FontAwesomeIcon icon={faRedo} />
                         Reset
                     </button>
                 </div>
@@ -136,10 +155,11 @@ const EligibilityChecker: React.FC = () => {
 
             {eligibilityMessage && (
                 <div
-                    className="alert alert-info bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white p-4 rounded-lg"
+                    className="alert alert-info bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white p-4 rounded-lg flex items-center gap-2"
                     role="alert"
                     aria-live="polite"
                 >
+                    <FontAwesomeIcon icon={faCheckCircle} className="text-blue-500" />
                     <p>{eligibilityMessage}</p>
                 </div>
             )}
