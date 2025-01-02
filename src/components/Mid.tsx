@@ -38,6 +38,14 @@ const Mid: React.FC = () => {
             logo: '/images/react-router.png',
             link: 'https://reactrouter.com',
         },
+        {
+            name: 'Font Awesome',
+            easeOfUse: 4.5,
+            added: '2025-01-01',
+            description: 'A popular icon library with over 1,500 icons to choose from.',
+            logo: '/images/fonteawesome.png',
+            link: 'https://fontawesome.com',
+        }
     ];
 
     const filteredLibraries = libraries.filter((library) =>
