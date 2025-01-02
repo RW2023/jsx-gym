@@ -20,7 +20,7 @@ function App() {
         <Navigation />
 
         {/* Main Content */}
-        <main className="flex-grow">
+        <main className="flex-grow bg-gray-300 dark:bg-gray-900">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mid" element={<Mid />} />
