@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRedo, faChevronDown, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import generations from "../Data/generations";
+
+// Ensure generations is typed correctly
+const typedGenerations: Generations = generations;
 
 // Types
 type GenerationDetails = {
@@ -9,56 +13,11 @@ type GenerationDetails = {
     description: string;
     detailedDescription: string;
     image: string;
+    definingItems: { type: string; value: string }[];
 };
 
 type Generations = {
     [key: string]: GenerationDetails;
-};
-
-// Generations data
-const generations: Generations = {
-    silent: {
-        years: "1928-1945",
-        description: "The Silent Generation grew up during the Great Depression and World War II.",
-        detailedDescription:
-            "This generation is known for their strong work ethic, discipline, and traditional values. They witnessed major world events like the Great Depression and WWII, which deeply influenced their outlook on life. Many became leaders in business and government in the latter half of the 20th century.",
-        image: "/generations/silent.jpg",
-    },
-    babyBoomers: {
-        years: "1946-1964",
-        description: "Baby Boomers were born post-World War II during a time of economic prosperity.",
-        detailedDescription:
-            "Baby Boomers played a key role in shaping modern culture. They experienced the civil rights movement, the Vietnam War protests, and the rise of rock 'n' roll. As a generation, they value personal growth and were pioneers of social change.",
-        image: "/generations/babyBoomers.jpg",
-    },
-    generationX: {
-        years: "1965-1980",
-        description: "Generation X grew up during the rise of personal computers.",
-        detailedDescription:
-            "Often referred to as the 'Latchkey Generation,' Generation X is known for their independence and entrepreneurial spirit. They were the first generation to grow up with video games, cable TV, and personal computers, marking the beginning of the digital age.",
-        image: "/generations/generationX.webp",
-    },
-    millennials: {
-        years: "1981-1996",
-        description: "Millennials came of age during the internet boom and the rise of social media.",
-        detailedDescription:
-            "Millennials are highly tech-savvy and value experiences over material possessions. They came of age during the dot-com boom, 9/11, and the 2008 financial crisis, shaping their adaptability and focus on work-life balance. They are also known for their environmental and social awareness.",
-        image: "/generations/millennials.webp",
-    },
-    generationZ: {
-        years: "1997-2012",
-        description: "Generation Z is the first generation to grow up with smartphones.",
-        detailedDescription:
-            "This generation is marked by their digital-native status. They value diversity and inclusivity, and they are highly vocal about social and political issues. Their strong connection to technology influences their communication and work preferences.",
-        image: "/generations/generationZ.webp",
-    },
-    generationAlpha: {
-        years: "2013-Present",
-        description: "Generation Alpha is growing up in a world dominated by digital technologies.",
-        detailedDescription:
-            "Generation Alpha is still in its formative years, but they are already showing a deep connection to AI, automation, and cutting-edge technology. They are expected to be the most educated generation, with a strong focus on creativity and innovation.",
-        image: "/generations/generationAlpha.jpg",
-    },
 };
 
 // Helper function to convert strings to Title Case
@@ -145,19 +104,26 @@ const GenerationSelector: React.FC = () => {
                                 icon={faCalendarAlt}
                                 className="text-gray-800 dark:text-white mr-2"
                             />
-                            {toTitleCase(selectedGeneration)}
+                            Years: {typedGenerations[selectedGeneration].years}
                         </h2>
                         <p className="text-sm italic font-roboto">
-                            Years: {generations[selectedGeneration].years}
+                            Years: {typedGenerations[selectedGeneration].years}
                         </p>
                         <p className="mt-2 font-roboto">
-                            {generations[selectedGeneration].description}
+                            {typedGenerations[selectedGeneration].description}
                         </p>
                         <p className="mt-4 font-roboto text-gray-600 dark:text-gray-300">
-                            {generations[selectedGeneration].detailedDescription}
+                            {typedGenerations[selectedGeneration].detailedDescription}
                         </p>
+                        <ul className="mt-4 list-disc list-inside">
+                            {typedGenerations[selectedGeneration].definingItems.map((item, index) => (
+                                <li key={index}>
+                                    <strong>{item.type}:</strong> {item.value}
+                                </li>
+                            ))}
+                        </ul>
                         <img
-                            src={generations[selectedGeneration].image}
+                            src={typedGenerations[selectedGeneration].image}
                             alt={`${toTitleCase(selectedGeneration)} image`}
                             className="w-full h-auto mt-4 rounded-lg"
                         />
