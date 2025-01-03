@@ -14,7 +14,7 @@ const categories: { [key: string]: number } = {
     "Driving Age": 16,
     "College Admission": 17,
     "Voting Age": 18,
-    "Retirement Age": 65,
+    "Retirement": 65,
     "Military Enlistment": 18,
     "First Job": 16,
     "Adulthood": 18,
