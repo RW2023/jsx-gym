@@ -50,7 +50,7 @@ const Navigation: React.FC = () => {
     }, []);
 
     return (
-        <nav className="bg-white dark:bg-gray-800 text-black dark:text-white sticky top-0 z-20 shadow-md">
+        <nav className="bg-white dark:bg-gray-800 text-black dark:text-white sticky top-0 z-20 shadow-md font-orbitron">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo Section */}
