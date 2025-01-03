@@ -76,7 +76,7 @@ const EligibilityChecker: React.FC = () => {
         setFirstName("");
         setLastName("");
         setBirthYear("");
-        setSelectedCategory("Drinking Age - Quebec");
+        setSelectedCategory("Drinking Age Clubbing - Ontario");
         setEligibilityMessage("");
         setError("");
     };
