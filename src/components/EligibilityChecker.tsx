@@ -11,9 +11,9 @@ import {
 const categories: { [key: string]: number } = {
     "Drinking And Clubbing - Quebec": 18,
     "Drinking Age Clubbing - Ontario": 19,
-    "Driving Age": 16,
+    "Driving Privileges": 16,
     "College Admission": 17,
-    "Voting Age": 18,
+    "Voting ": 18,
     "Retirement": 65,
     "Military Enlistment": 18,
     "First Job": 16,
