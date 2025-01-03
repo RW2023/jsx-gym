@@ -82,7 +82,7 @@ const GenerationSelector: React.FC = () => {
                     {/* Reset Button */}
                     <motion.button
                         type="button"
-                        className="btn btn-outline w-full mt-2 text-gray-800 dark:text-gray-300 dark:border-gray-500 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center gap-2"
+                        className="btn btn-outline w-full mt-2 text-gray-800 dark:text-gray-300 dark:border-gray-500 hover:bg-gray-200 hover:text-black dark:hover:bg-gray-700 flex items-center justify-center gap-2"
                         onClick={handleReset}
                         whileHover={{ scale: 1.05 }}
                     >
