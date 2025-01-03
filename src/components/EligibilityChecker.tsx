@@ -200,7 +200,7 @@ const EligibilityChecker: React.FC = () => {
                         className="btn bg-blue-500 text-white hover:bg-blue-600 dark:hover:bg-blue-400 flex-1 flex items-center justify-center gap-2"
                     >
                         <FontAwesomeIcon icon={faCheckCircle} />
-                        Check Eligibility
+                        Check
                     </button>
                     <button
                         type="button"
