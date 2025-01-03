@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faUser,
@@ -8,18 +8,52 @@ import {
     faRedo,
 } from "@fortawesome/free-solid-svg-icons";
 
+const categories: { [key: string]: number } = {
+    "Drinking And Clubbing - Quebec": 18,
+    "Drinking Age Clubbing - Ontario": 19,
+    "Driving Age": 16,
+    "College Admission": 17,
+    "Voting Age": 18,
+    "Retirement Age": 65,
+    "Military Enlistment": 18,
+    "First Job": 16,
+    "Adulthood": 18,
+    "Drinking And Clubbing USA": 21,
+
+};
+
 const EligibilityChecker: React.FC = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [birthYear, setBirthYear] = useState<number | "">("");
     const [eligibilityMessage, setEligibilityMessage] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState<string>("Drinking Age Clubbing - Ontario");
     const [error, setError] = useState<string>("");
-
-    const eligibleAge = 18;
 
     const calculateAge = (birthYear: number): number => {
         const currentYear = new Date().getFullYear();
         return currentYear - birthYear;
+    };
+
+    const updateEligibilityMessage = () => {
+        if (!firstName.trim() || !lastName.trim() || !birthYear) {
+            setEligibilityMessage("");
+            return;
+        }
+
+        const age = calculateAge(Number(birthYear));
+        const eligibleAge = categories[selectedCategory];
+
+        if (age >= eligibleAge) {
+            setEligibilityMessage(
+                `${firstName} ${lastName} is ${age} years old and is eligible for ${selectedCategory}.`
+            );
+        } else {
+            const yearsLeft = eligibleAge - age;
+            setEligibilityMessage(
+                `${firstName} ${lastName} is ${age} years old and needs ${yearsLeft} more year(s) to be eligible for ${selectedCategory}.`
+            );
+        }
     };
 
     const checkEligibility = (e: React.FormEvent) => {
@@ -35,28 +69,22 @@ const EligibilityChecker: React.FC = () => {
         }
 
         setError("");
-
-        const age = calculateAge(birthYear);
-
-        if (age >= eligibleAge) {
-            setEligibilityMessage(
-                `${firstName} ${lastName} is ${age} years old and is eligible to participate.`
-            );
-        } else {
-            const yearsLeft = eligibleAge - age;
-            setEligibilityMessage(
-                `${firstName} ${lastName} is ${age} years old and needs ${yearsLeft} more year(s) to be eligible.`
-            );
-        }
+        updateEligibilityMessage();
     };
 
     const resetForm = () => {
         setFirstName("");
         setLastName("");
         setBirthYear("");
+        setSelectedCategory("Drinking Age - Quebec");
         setEligibilityMessage("");
         setError("");
     };
+
+    // Update eligibility message when the category changes
+    useEffect(() => {
+        updateEligibilityMessage();
+    }, [selectedCategory]);
 
     return (
         <div className="bg-base-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md mx-auto m-3">
@@ -66,9 +94,10 @@ const EligibilityChecker: React.FC = () => {
             </h1>
 
             <form onSubmit={checkEligibility} className="mb-6">
+                {/* First Name */}
                 <div className="mb-4">
                     <label
-                        className="block font-bold mb-2 text-gray-700 dark:text-gray-200 flex items-center"
+                        className="font-bold mb-2 text-gray-700 dark:text-gray-200 flex items-center"
                         htmlFor="firstName"
                     >
                         <FontAwesomeIcon icon={faUser} className="mr-2" />
@@ -85,6 +114,8 @@ const EligibilityChecker: React.FC = () => {
                         aria-required="true"
                     />
                 </div>
+
+                {/* Last Name */}
                 <div className="mb-4">
                     <label
                         className="block font-bold mb-2 text-gray-700 dark:text-gray-200 flex items-center"
@@ -104,6 +135,8 @@ const EligibilityChecker: React.FC = () => {
                         aria-required="true"
                     />
                 </div>
+
+                {/* Birth Year */}
                 <div className="mb-4">
                     <label
                         className="block font-bold mb-2 text-gray-700 dark:text-gray-200 flex items-center"
@@ -128,12 +161,39 @@ const EligibilityChecker: React.FC = () => {
                         aria-required="true"
                     />
                 </div>
+
+                {/* Category Selection */}
+                <div className="mb-4">
+                    <label
+                        className="block font-bold mb-2 text-gray-700 dark:text-gray-200 flex items-center"
+                        htmlFor="category"
+                    >
+                        <FontAwesomeIcon icon={faExclamationCircle} className="mr-2" />
+                        Select Category:
+                    </label>
+                    <select
+                        id="category"
+                        value={selectedCategory}
+                        onChange={(e) => setSelectedCategory(e.target.value)}
+                        className="input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white"
+                    >
+                        {Object.keys(categories).map((category) => (
+                            <option key={category} value={category}>
+                                {category}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+
+                {/* Error Message */}
                 {error && (
                     <p className="text-red-500 dark:text-red-400 mb-4 flex items-center">
                         <FontAwesomeIcon icon={faExclamationCircle} className="mr-2" />
                         {error}
                     </p>
                 )}
+
+                {/* Buttons */}
                 <div className="flex gap-4">
                     <button
                         type="submit"
@@ -153,6 +213,7 @@ const EligibilityChecker: React.FC = () => {
                 </div>
             </form>
 
+            {/* Eligibility Message */}
             {eligibilityMessage && (
                 <div
                     className="alert alert-info bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white p-4 rounded-lg flex items-center gap-2"
