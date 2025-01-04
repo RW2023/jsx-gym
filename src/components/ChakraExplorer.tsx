@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { chakras, ChakraDetails } from "../Data/chakraData";
+import EgoSelfDisplay from "./EgoSelfDisplay";
 
 const ChakraExplorer: React.FC = () => {
     const [selectedChakra, setSelectedChakra] = useState<ChakraDetails | null>(null);
@@ -140,6 +141,7 @@ const ChakraExplorer: React.FC = () => {
                     )}
                 </motion.div>
             </div>
+            <EgoSelfDisplay />
         </div>
     );
 };
