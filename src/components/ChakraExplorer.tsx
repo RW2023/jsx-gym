@@ -41,15 +41,16 @@ const ChakraExplorer: React.FC = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
+                    {/* Selector */}
                     <div className="mb-6">
                         <label className="block font-bold text-gray-700 dark:text-gray-300 mb-2">
                             Select a Chakra:
                         </label>
                         <select
-                            aria-label="Select a Chakra"
                             className="select select-bordered w-full dark:bg-gray-700 dark:text-gray-300"
                             onChange={handleChange}
                             defaultValue=""
+                            title="Select a Chakra"
                         >
                             <option value="" disabled>
                                 -- Choose a Chakra --
@@ -77,33 +78,41 @@ const ChakraExplorer: React.FC = () => {
                                 {selectedChakra.description}
                             </p>
 
+                            {/* Chakra Details */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
                                 <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-md shadow">
                                     <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
                                         Details
                                     </h4>
                                     <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                                        <li>
-                                            <strong>Physical Location:</strong>{" "}
-                                            {selectedChakra.physicalLocation}
-                                        </li>
-                                        <li>
-                                            <strong>Physical Systems:</strong>{" "}
-                                            {selectedChakra.physicalSystems}
-                                        </li>
-                                        <li>
-                                            <strong>Nerve Plexus:</strong>{" "}
-                                            {selectedChakra.nervePlexus}
-                                        </li>
-                                        <li>
-                                            <strong>Gland:</strong> {selectedChakra.gland}
-                                        </li>
-                                        <li>
-                                            <strong>Element:</strong> {selectedChakra.element}
-                                        </li>
-                                        <li>
-                                            <strong>Color:</strong> {selectedChakra.color}
-                                        </li>
+                                        <li><strong>Physical Location:</strong> {selectedChakra.physicalLocation}</li>
+                                        <li><strong>Physical Systems:</strong> {selectedChakra.physicalSystems}</li>
+                                        <li><strong>Nerve Plexus:</strong> {selectedChakra.nervePlexus}</li>
+                                        <li><strong>Gland:</strong> {selectedChakra.gland}</li>
+                                        <li><strong>Element:</strong> {selectedChakra.element}</li>
+                                        <li><strong>Color:</strong> {selectedChakra.color}</li>
+                                    </ul>
+                                </div>
+                                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-md shadow">
+                                    <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
+                                        Attributes
+                                    </h4>
+                                    <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                                        <li><strong>Sense:</strong> {selectedChakra.sense}</li>
+                                        <li><strong>Energy Body:</strong> {selectedChakra.energyBody}</li>
+                                        <li><strong>Seed Mantra:</strong> {selectedChakra.seedMantra}</li>
+                                        <li><strong>Related Day:</strong> {selectedChakra.relatedDay}</li>
+                                        <li><strong>Quest:</strong> {selectedChakra.quest}</li>
+                                    </ul>
+                                </div>
+                                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-md shadow">
+                                    <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
+                                        Qualities & Challenges
+                                    </h4>
+                                    <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                                        <li><strong>Qualities:</strong> {selectedChakra.qualities}</li>
+                                        <li><strong>Blocking Fears:</strong> {selectedChakra.blockingFears}</li>
+                                        <li><strong>Catharsis:</strong> {selectedChakra.catharsis}</li>
                                     </ul>
                                 </div>
                                 <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-md shadow">
@@ -111,19 +120,8 @@ const ChakraExplorer: React.FC = () => {
                                         Additional Information
                                     </h4>
                                     <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                                        <li>
-                                            <strong>Sense:</strong> {selectedChakra.sense}
-                                        </li>
-                                        <li>
-                                            <strong>Energy Body:</strong>{" "}
-                                            {selectedChakra.energyBody}
-                                        </li>
-                                        <li>
-                                            <strong>Seed Mantra:</strong> {selectedChakra.seedMantra}
-                                        </li>
-                                        <li>
-                                            <strong>Foods:</strong> {selectedChakra.foods}
-                                        </li>
+                                        <li><strong>Stone:</strong> {selectedChakra.stone}</li>
+                                        <li><strong>Foods:</strong> {selectedChakra.foods}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -132,7 +130,7 @@ const ChakraExplorer: React.FC = () => {
                                 <img
                                     src={selectedChakra.image}
                                     alt={`${selectedChakra.name} illustration`}
-                                    className="w-full h-auto rounded-lg shadow-md"
+                                    className="w-full h-auto rounded-lg"
                                 />
                             </div>
                         </div>
@@ -143,24 +141,7 @@ const ChakraExplorer: React.FC = () => {
                     )}
                 </motion.div>
             </div>
-
-            {/* Enhanced Container for EgoSelfDisplay */}
-            <div className="flex flex-col items-center justify-center mt-12">
-                <motion.div
-                    className="w-full max-w-5xl bg-white dark:bg-gray-800 rounded-lg shadow-2xl p-8"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-6">
-                        Explore the Ego and Self
-                    </h2>
-                    <p className="text-center text-lg text-gray-600 dark:text-gray-400 mb-8">
-                        Dive into the depths of the psyche and uncover the differences between the Ego and the Self. Hover to learn more.
-                    </p>
-                    <EgoSelfDisplay />
-                </motion.div>
-            </div>
+            <EgoSelfDisplay />
         </div>
     );
 };
