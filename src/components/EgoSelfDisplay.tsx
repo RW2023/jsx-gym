@@ -90,7 +90,7 @@ const EgoSelfDisplay: React.FC = () => {
                 transition={{ duration: 0.5 }}
             >
                 <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
-                    {currentInfo === iAm ? "Ego" : "The Self"}
+                    {currentInfo === iAm ? "Me" : "I am"}
                 </h3>
                 <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-2">
                     {Object.entries(currentInfo).map(([key, value]) => (
