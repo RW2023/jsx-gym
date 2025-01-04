@@ -52,7 +52,7 @@ const EgoSelfDisplay: React.FC = () => {
                     <div className="flex flex-col items-center">
                         <FontAwesomeIcon icon={faUser} size="3x" className="text-blue-500 mb-4" />
                         <h2 className="text-xl font-bold text-gray-800 dark:text-white">
-                            Ego
+                            Me
                         </h2>
                         <p className="text-gray-600 dark:text-gray-400 text-sm text-center mt-2">
                             Hover to learn more about the Ego.
@@ -73,7 +73,7 @@ const EgoSelfDisplay: React.FC = () => {
                             className="text-green-500 mb-4"
                         />
                         <h2 className="text-xl font-bold text-gray-800 dark:text-white">
-                            The Self
+                            The True Self
                         </h2>
                         <p className="text-gray-600 dark:text-gray-400 text-sm text-center mt-2">
                             Hover to learn more about The Self.
